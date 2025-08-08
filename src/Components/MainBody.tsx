@@ -39,7 +39,7 @@ const MainBody: React.FC<MainBodyProps> = ({
                                 onClick={()=>{handleProductClick(product)}}
                             >
                                 <img
-                                    src={product?.image}
+                                     src={`/images/${product.image}`}
                                     alt={product?.name}
                                     className="w-full lg:h-36 object-cover rounded mb-2"
                                 />
