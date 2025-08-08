@@ -133,7 +133,7 @@ function App() {
     {
       id: 5,
       name: "Safety Goggles",
-      image: "/src/assets/safety_goggles.jpg",
+      image: "/src/assets/protective_glasses.jpg",
       price: "₦2,500",
       description: "Protective eyewear for construction and DIY projects",
     },
@@ -186,7 +186,7 @@ function App() {
     {
       id: 6,
       name: "Nail Polish Set",
-      image: "/src/assets/nail_polish.jpg",
+      image: "/src/assets/nail.jpeg",
       price: "₦2,800",
       description: "6 vibrant colors with long-lasting finish",
     },
@@ -255,7 +255,7 @@ function App() {
     {
       id: 2,
       name: "Ladies Handbag",
-      image: "/src/assets/ladies_handbag.jpg",
+      image: "/src/assets/hand_bag.jpg",
       price: "₦12,000",
       description: "Elegant leather handbag with gold detailing",
     },
@@ -283,7 +283,7 @@ function App() {
     {
       id: 6,
       name: "Sunglasses",
-      image: "/src/assets/sunglasses.jpg",
+      image: "/src/assets/sun_glasses.jpg",
       price: "₦3,500",
       description: "UV-protected stylish sunglasses for summer",
     }
