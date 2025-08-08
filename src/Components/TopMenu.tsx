@@ -3,7 +3,7 @@ import { MdHome, MdSearch } from 'react-icons/md'
 import type { TopMenuProps } from '../Types'
 
 const TopMenu: React.FC<TopMenuProps> = ({
-    cartCount
+    cartCount, searchQuery, setSearchQuery
 }) => {
     return (
         <header className="bg-[#3B4B66] text-white w-full">
@@ -27,7 +27,9 @@ const TopMenu: React.FC<TopMenuProps> = ({
                     {/* Search Bar */}
                     <div className="lg:ml-4 relative w-full max-w-full md:max-w-xl">
                         <input
-                            type="text"
+                            type="search"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Search Regis"
                             className="w-full rounded-md pl-5 pr-14 py-3 text-black text-base focus:outline-none focus:ring-2 focus:ring-yellow-400"
                         />

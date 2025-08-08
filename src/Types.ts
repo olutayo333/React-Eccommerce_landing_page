@@ -1,5 +1,7 @@
 export interface TopMenuProps{
     cartCount:number
+    searchQuery:string
+    setSearchQuery:(arg:string)=>void
 }
 
 export interface ProductProps{

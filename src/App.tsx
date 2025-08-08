@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const electronicsProducts: ProductProps[] = [
     {
@@ -317,11 +318,16 @@ function App() {
   // UPDATE CART ON INITIAL LOAD
   useEffect(() => {
     updateCartCount(); //initial cart count update
-    // window.addEventListener("storage", updateCartCount); //listen for changes in localStorage
-    // return () => {
-    //   window.removeEventListener("storage", updateCartCount); //cleanup listener
-    // };
   }, [])
+
+   //  SEARCH LOGIC
+  const filterProducts = (products: ProductProps[]) => {
+    if (!searchQuery.trim()) return products;
+    return products.filter((p) =>
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
 
   return (
     <div className="h-screen flex flex-col w-full min-h-screen">
@@ -331,6 +337,8 @@ function App() {
       {/* Top menu */}
       <TopMenu
         cartCount={cartCount}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
 
       {/* Main body and sidebar */}
@@ -343,13 +351,12 @@ function App() {
         {/* Main content */}
         <div className="flex-1 overflow-y-auto">
           <MainBody
-            electronicsProducts={electronicsProducts || []}
-            kidsProducts={kidsProducts || []}
-            toolsHardwareProducts={toolsHardwareProducts || []}
-            beautyProducts={beautyProducts || []}
-            homeLivingProducts={homeLivingProducts || []}
-            fashionProducts={fashionProducts || []}
-
+           electronicsProducts={filterProducts(electronicsProducts)}
+            kidsProducts={filterProducts(kidsProducts)}
+            toolsHardwareProducts={filterProducts(toolsHardwareProducts)}
+            beautyProducts={filterProducts(beautyProducts)}
+            homeLivingProducts={filterProducts(homeLivingProducts)}
+            fashionProducts={filterProducts(fashionProducts)}
             addToCart={addToCart}
           />
         </div>
