@@ -23,7 +23,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
         {/* Product image */}
         <img
-          src={productDetails?.image}
+        src={`/images/${productDetails?.image}`}
           alt={productDetails?.name}
           className="w-full lg:h-72 h-64 object-cover rounded-lg mb-4"
         />
