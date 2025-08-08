@@ -18,7 +18,7 @@ const MainBody: React.FC<MainBodyProps> = ({
                 {products && products.length > 0 ? (
                     products?.map((product, index) => (
                         <div
-                            key={product.id}
+                            key={product.id || index}
                             className="group border p-2 rounded hover:shadow-md transition flex flex-col justify-between"
                         >
                             <img

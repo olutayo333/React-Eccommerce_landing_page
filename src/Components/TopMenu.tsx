@@ -23,7 +23,7 @@ const TopMenu = () => {
                     </div>
 
                     {/* Search Bar */}
-                    <div className="relative w-full max-w-full md:max-w-xl">
+                    <div className="lg:ml-4 relative w-full max-w-full md:max-w-xl">
                         <input
                             type="text"
                             placeholder="Search Regis"
