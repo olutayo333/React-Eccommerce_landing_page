@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   FaBars,
   FaChild,
@@ -15,7 +16,7 @@ import {
 } from 'react-icons/fa'
 
 const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleSidebar = () => setIsOpen(!isOpen)
 
