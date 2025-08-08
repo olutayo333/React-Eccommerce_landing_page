@@ -1,8 +1,10 @@
-import React from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import { MdHome, MdSearch } from 'react-icons/md'
+import type { TopMenuProps } from '../Types'
 
-const TopMenu = () => {
+const TopMenu: React.FC<TopMenuProps> = ({
+    cartCount
+}) => {
     return (
         <header className="bg-[#3B4B66] text-white w-full">
             <div className="max-w-screen-xl mx-auto px-4 py-3 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -39,18 +41,13 @@ const TopMenu = () => {
                 {/* Right Section */}
                 <div className="flex flex-wrap items-center justify-between gap-3 w-full md:w-auto">
 
-                    <a
-                        href="#"
-                        className="text-sm cursor-pointer hover:text-yellow-400 transition-colors"
-                    >
-                        Orders
-                    </a>
-
-                    <a
-                        href="#"
-                        className="text-xl cursor-pointer hover:text-yellow-400 transition-colors"
-                    >
+                    <a href="#" className="relative text-xl cursor-pointer hover:text-yellow-400 transition-colors">
                         <FiShoppingCart />
+                        {cartCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-xs font-bold px-1 py-0 rounded-full">
+                                <span className='font-bold'>{cartCount}</span>
+                            </span>
+                        )}
                     </a>
 
                     <button className="border border-yellow-400 px-3 py-1 rounded text-sm hover:bg-yellow-400 hover:text-black transition-colors">

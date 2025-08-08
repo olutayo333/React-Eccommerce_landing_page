@@ -1,3 +1,7 @@
+export interface TopMenuProps{
+    cartCount:number
+}
+
 export interface ProductProps{
     name:string,
     description:string,
@@ -13,4 +17,11 @@ export interface MainBodyProps{
     beautyProducts:ProductProps[]
     homeLivingProducts:ProductProps[]
     fashionProducts:ProductProps[]
+    addToCart:(arg:ProductProps)=>void
+}
+
+export interface ProductDetailsProps{
+    productDetails:ProductProps | null
+    handleCloseProductDetails:()=>void
+    addToCart:(arg:ProductProps)=>void
 }

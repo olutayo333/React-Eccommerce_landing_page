@@ -3,14 +3,18 @@ import TopMenu from './Components/TopMenu'
 import SideBar from './Components/SideBar'
 import MainBody from './Components/MainBody'
 import type { ProductProps } from './Types';
+import toast from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
+import { useEffect, useState } from 'react';
 
 function App() {
-  
+  const [cartCount, setCartCount] = useState(0);
+
   const electronicsProducts: ProductProps[] = [
     {
       id: 1,
       name: "Wireless Headphones",
-      image: "/src/assets/headset1.jpg",
+      image: "/src/assets/headsetwithmic.jpg",
       price: "₦15,000",
       description: "Noise-cancelling over-ear headphones with Bluetooth 5.0",
     },
@@ -285,10 +289,49 @@ function App() {
     }
   ];
 
+  // FUNCTION TO ADD TO CART
+  const addToCart = (product: ProductProps) => {
+    // Get existing cart or empty array
+    const cart = JSON.parse(localStorage.getItem("regis_cart") || "[]");
+
+    // Check if product already exists
+    const exists = cart.some((item: ProductProps) => item.id === product.id);
+    if (exists) {
+      toast.error("Product already in cart");
+      return;
+    }
+
+    // Add new product
+    cart.push({ ...product, quantity: 1 });
+    localStorage.setItem("regis_cart", JSON.stringify(cart));
+    toast.success("Product added to cart");
+    updateCartCount(); //update cart count 
+  };
+
+  // FUNCTION TO UPDATE COUNT
+  const updateCartCount = () => {
+    const cart = JSON.parse(localStorage.getItem("regis_cart") || "[]");
+    setCartCount(cart.length);
+  };
+
+  // UPDATE CART ON INITIAL LOAD
+  useEffect(() => {
+    updateCartCount(); //initial cart count update
+    // window.addEventListener("storage", updateCartCount); //listen for changes in localStorage
+    // return () => {
+    //   window.removeEventListener("storage", updateCartCount); //cleanup listener
+    // };
+  }, [])
+
   return (
     <div className="h-screen flex flex-col w-full min-h-screen">
+      {/* Toast Notifications */}
+      <Toaster position="top-right" reverseOrder={false} />
+
       {/* Top menu */}
-      <TopMenu />
+      <TopMenu
+        cartCount={cartCount}
+      />
 
       {/* Main body and sidebar */}
       <div className="flex flex-1 overflow-hidden ">
@@ -307,6 +350,7 @@ function App() {
             homeLivingProducts={homeLivingProducts || []}
             fashionProducts={fashionProducts || []}
 
+            addToCart={addToCart}
           />
         </div>
       </div>
