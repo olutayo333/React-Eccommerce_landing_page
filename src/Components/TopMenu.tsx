@@ -15,7 +15,7 @@ const TopMenu: React.FC<TopMenuProps> = ({
                     {/* Logo & Home Icon - aligned right on mobile */}
                     <div className="flex items-center gap-3 ml-auto md:ml-0">
                         <img
-                            src="/src/assets/logo_transparent.png"
+                            src="/images/logo_transparent.png"
                             alt="Logo"
                             className="h-10 w-auto"
                         />
