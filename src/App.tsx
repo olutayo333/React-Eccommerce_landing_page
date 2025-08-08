@@ -134,7 +134,7 @@ function App() {
     {
       id: 5,
       name: "Safety Goggles",
-      image: "protective_glasses.jpg",
+      image: "safety_glass.jpg",
       price: "₦2,500",
       description: "Protective eyewear for construction and DIY projects",
     },
