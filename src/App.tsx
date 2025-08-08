@@ -10,20 +10,20 @@ function App() {
     {
       id: 1,
       name: "Wireless Headphones",
-      image: "https://via.placeholder.com/150",
+      image: "/src/assets/headset1.jpg",
       price: "₦15,000",
       description: "Noise-cancelling over-ear headphones with Bluetooth 5.0",
     },
     {
       id: 2,
       name: "Smart Watch",
-      image: "https://via.placeholder.com/150",
+      image: "/src/assets/smartwatch1.png",
       price: "₦23,500",
       description: "Fitness tracking, heart rate monitor, and sleep analysis",
     },
     {
       id: 3,
-      name: "LED TV 32\"",
+      name: "LED TV 32",
       image: "/src/assets/television.jpg",
       price: "₦75,000",
       description: "Smart LED TV with HDMI & USB ports",
